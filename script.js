@@ -1,4 +1,4 @@
-alert("JS KELOAD");
+console.log("SCRIPT BARU JALAN");
 
 let taskList = document.getElementById("taskList");
 let taskInput = document.getElementById("taskInput");
@@ -12,12 +12,12 @@ function addTask() {
         alert("Tugas tidak boleh kosong!");
         return;
     }
-
     tasks.push({ text: taskInput.value, done: false });
     localStorage.setItem("tasks", JSON.stringify(tasks));
     taskInput.value = "";
     renderTasks();
 }
+
 function toggleTask(index) {
     tasks[index].done = !tasks[index].done;
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -43,7 +43,7 @@ function renderTasks() {
         let span = document.createElement("span");
         span.textContent = task.text;
         if (task.done) span.classList.add("completed");
-
+        
         let del = document.createElement("button");
         del.textContent = "❌";
         del.onclick = () => deleteTask(index);
@@ -54,3 +54,4 @@ function renderTasks() {
 
         taskList.appendChild(li);
     });
+}
